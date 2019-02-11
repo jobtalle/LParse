@@ -10,7 +10,7 @@ namespace LParse {
 		char getSymbol() const;
 		bool operator==(const Token &other) const;
 		bool operator!=(const Token &other) const;
-		Token operator=(const Token &other);
+		Token operator=(const Token &other) const;
 
 	private:
 		const char symbol;

@@ -25,7 +25,7 @@ bool Token::operator!=(const Token &other) const {
 	return symbol != other.symbol;
 }
 
-Token Token::operator=(const Token &other) {
+Token Token::operator=(const Token &other) const {
 	return Token(other);
 }
 

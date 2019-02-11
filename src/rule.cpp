@@ -2,7 +2,7 @@
 
 using namespace LParse;
 
-const std::string Rule::CONNECTIVE = " -> ";
+const std::string Rule::CONNECTIVE = " => ";
 
 Rule::Rule(const Sentence lhs, const Sentence rhs) :
 	lhs(lhs),
