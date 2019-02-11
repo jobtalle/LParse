@@ -8,6 +8,8 @@
 namespace LParse {
 	class Rule final {
 	public:
+		static const std::string CONNECTIVE;
+
 		Rule(const Sentence lhs, const Sentence rhs);
 		const Sentence &getLhs() const;
 		const Sentence &getRhs() const;
