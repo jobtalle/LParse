@@ -7,6 +7,6 @@ Token::Token(const char symbol) :
 
 }
 
-void Token::print(std::ostream stream) const {
+void Token::print(std::ostream &stream) const {
 	stream << symbol;
 }
