@@ -20,20 +20,20 @@ void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 	std::vector<Token> newTokens;
 
 	for(auto at = tokens.begin(); at < tokens.end();) {
-		std::vector<Rule> possibleRules;
+		std::vector<Rule*> possibleRules;
 
-		for(auto rule : rules)
-			if(applicable(at, rule))
-				possibleRules.push_back(rule);
+		for(auto rule = rules.begin(); rule < rules.end(); ++rule)
+			if(applicable(at, *rule))
+				possibleRules.push_back(const_cast<Rule*>(&*rule));
 
 		if(possibleRules.size()) {
 			std::uniform_int_distribution<int> distribution(0, possibleRules.size() - 1);
 			auto rule = possibleRules[distribution(randomizer)];
-			auto result = rule.getRhs().getTokens();
+			auto result = rule->getRhs().getTokens();
 
 			newTokens.insert(newTokens.end(), result.begin(), result.end());
 
-			std::advance(at, rule.getLhs().getTokens().size());
+			std::advance(at, rule->getLhs().getTokens().size());
 		}
 		else
 			newTokens.push_back(*at++);
