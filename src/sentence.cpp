@@ -42,7 +42,7 @@ void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 	tokens = newTokens;
 }
 
-std::vector<Token> Sentence::getTokens() const {
+const std::vector<Token> &Sentence::getTokens() const {
 	return tokens;
 }
 

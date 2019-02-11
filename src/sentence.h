@@ -13,7 +13,7 @@ namespace LParse {
 		Sentence(const std::vector<Token> tokens);
 		void print(std::ostream &stream) const;
 		void apply(const std::vector<Rule> &rules, std::mt19937 &randomizer);
-		std::vector<Token> getTokens() const;
+		const std::vector<Token> &getTokens() const;
 
 	private:
 		std::vector<Token> tokens;
