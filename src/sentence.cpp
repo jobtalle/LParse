@@ -22,8 +22,7 @@ void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 				possibleRules.push_back(const_cast<Rule*>(&*rule));
 
 		if(possibleRules.size()) {
-			std::uniform_int_distribution<int> distribution(0, possibleRules.size() - 1);
-			auto rule = possibleRules[distribution(randomizer)];
+			auto rule = possibleRules[std::uniform_int_distribution<int>(0, possibleRules.size() - 1)(randomizer)];
 			auto result = rule->getRhs().getTokens();
 
 			newTokens.insert(newTokens.end(), result.begin(), result.end());
