@@ -11,11 +11,6 @@ Sentence::Sentence(const std::vector<Token> tokens) :
 
 }
 
-void Sentence::print(std::ostream &stream) const {
-	for(const Token token : tokens)
-		token.print(stream);
-}
-
 void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 	std::vector<Token> newTokens;
 
@@ -54,4 +49,11 @@ bool Sentence::applicable(std::vector<Token>::iterator at, const Rule &rule) con
 			return false;
 
 	return true;
+}
+
+std::ostream &operator<<(std::ostream &stream, const Sentence &sentence) {
+	for(auto token : sentence.getTokens())
+		stream << token;
+
+	return stream;
 }

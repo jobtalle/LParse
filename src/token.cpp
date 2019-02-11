@@ -13,8 +13,8 @@ Token::Token(const Token &other) :
 	symbol(other.symbol) {
 }
 
-void Token::print(std::ostream &stream) const {
-	stream << symbol;
+char Token::getSymbol() const {
+	return symbol;
 }
 
 bool Token::operator==(const Token &other) const {
@@ -27,4 +27,10 @@ bool Token::operator!=(const Token &other) const {
 
 Token Token::operator=(const Token &other) {
 	return Token(other);
+}
+
+std::ostream &operator<<(std::ostream &stream, const Token &token) {
+	stream << token.getSymbol();
+
+	return stream;
 }

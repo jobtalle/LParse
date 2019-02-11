@@ -11,7 +11,6 @@ namespace LParse {
 	class Sentence final {
 	public:
 		Sentence(const std::vector<Token> tokens);
-		void print(std::ostream &stream) const;
 		void apply(const std::vector<Rule> &rules, std::mt19937 &randomizer);
 		const std::vector<Token> &getTokens() const;
 
@@ -21,3 +20,5 @@ namespace LParse {
 		bool applicable(std::vector<Token>::iterator at, const Rule &rule) const;
 	};
 };
+
+std::ostream &operator<<(std::ostream &stream, const LParse::Sentence &sentence);
