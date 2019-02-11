@@ -17,3 +17,11 @@ void Rule::print(std::ostream &stream) const {
 
 	rhs.print(stream);
 }
+
+Sentence Rule::getLhs() const {
+	return lhs;
+}
+
+Sentence Rule::getRhs() const {
+	return rhs;
+}
