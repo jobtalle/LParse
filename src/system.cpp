@@ -60,7 +60,7 @@ std::ostream &operator<<(std::ostream &stream, const System &system) {
 	stream << "Rules:" << std::endl;
 
 	for(auto rule : system.getRules())
-		stream << "- " << rule << std::endl;
+		stream << "  " << rule << std::endl;
 
 	return stream;
 }
