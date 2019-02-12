@@ -53,3 +53,14 @@ std::shared_ptr<Sentence> System::generate(std::mt19937 &randomizer) const {
 
 	return sentence;
 }
+
+std::ostream &operator<<(std::ostream &stream, const System &system) {
+	stream << "Axiom: " << system.getAxiom() << std::endl;
+	stream << "Iterations: " << system.getApplications() << std::endl;
+	stream << "Rules:" << std::endl;
+
+	for(auto rule : system.getRules())
+		stream << "- " << rule << std::endl;
+
+	return stream;
+}

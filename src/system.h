@@ -6,6 +6,7 @@
 #include <vector>
 #include <random>
 #include <memory>
+#include <ostream>
 
 namespace LParse {
 	class System final {
@@ -27,3 +28,5 @@ namespace LParse {
 		size_t applications = 0;
 	};
 }
+
+std::ostream &operator<<(std::ostream &stream, const LParse::System &system);
