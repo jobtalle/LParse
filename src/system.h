@@ -10,7 +10,7 @@
 namespace LParse {
 	class System final {
 	public:
-		System() = default;
+		System();
 		System(const Sentence &axiom, const std::vector<Rule> &rules, const size_t applications);
 		void setAxiom(const Sentence &axiom);
 		void setRules(const std::vector<Rule> &rules);

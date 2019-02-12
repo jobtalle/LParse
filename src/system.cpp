@@ -2,6 +2,11 @@
 
 using namespace LParse;
 
+System::System() :
+	axiom({}) {
+
+}
+
 System::System(const Sentence &axiom, const std::vector<Rule> &rules, const size_t applications) :
 	axiom(axiom),
 	rules(rules),
