@@ -42,7 +42,6 @@ void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 			newTokens.push_back(*at++);
 	}
 
-	tokens.clear();
 	tokens = newTokens;
 }
 

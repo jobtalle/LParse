@@ -25,8 +25,10 @@ bool Token::operator!=(const Token &other) const {
 	return symbol != other.symbol;
 }
 
-Token Token::operator=(const Token &other) const {
-	return Token(other);
+Token &Token::operator=(const Token &other) {
+	symbol = other.symbol;
+
+	return *this;
 }
 
 std::ostream &operator<<(std::ostream &stream, const Token &token) {
