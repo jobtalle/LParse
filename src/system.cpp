@@ -10,7 +10,7 @@ System::System() :
 System::System(const Sentence &axiom, const std::vector<Rule> &rules, const size_t applications) :
 	axiom(axiom),
 	rules(rules),
-	applications(applications) {
+	iterations(applications) {
 
 }
 
@@ -22,8 +22,8 @@ void System::setRules(const std::vector<Rule> &rules) {
 	this->rules = rules;
 }
 
-void System::setApplications(const size_t applications) {
-	this->applications = applications;
+void System::setIterations(const size_t applications) {
+	this->iterations = applications;
 }
 
 bool System::isComplete() const {
@@ -38,8 +38,8 @@ std::vector<Rule> System::getRules() const {
 	return rules;
 }
 
-size_t System::getApplications() const {
-	return applications;
+size_t System::getIterations() const {
+	return iterations;
 }
 
 std::shared_ptr<Sentence> System::generate(std::mt19937 &randomizer) const {
@@ -48,19 +48,8 @@ std::shared_ptr<Sentence> System::generate(std::mt19937 &randomizer) const {
 
 	std::shared_ptr<Sentence> sentence(new Sentence(axiom));
 
-	for(size_t application = 0; application < applications; ++application)
+	for(size_t application = 0; application < iterations; ++application)
 		sentence->apply(rules, randomizer);
 
 	return sentence;
-}
-
-std::ostream &operator<<(std::ostream &stream, const System &system) {
-	stream << "Axiom: " << system.getAxiom() << std::endl;
-	stream << "Iterations: " << system.getApplications() << std::endl;
-	stream << "Rules:" << std::endl;
-
-	for(auto rule : system.getRules())
-		stream << "  " << rule << std::endl;
-
-	return stream;
 }
