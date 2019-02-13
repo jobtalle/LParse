@@ -9,10 +9,6 @@ Token::Token(const char symbol) :
 
 }
 
-Token::Token(const Token &other) :
-	symbol(other.symbol) {
-}
-
 char Token::getSymbol() const {
 	return symbol;
 }

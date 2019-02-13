@@ -6,7 +6,6 @@ namespace LParse {
 	class Token final {
 	public:
 		Token(const char symbol);
-		Token(const Token &other);
 		char getSymbol() const;
 		bool operator==(const Token &other) const;
 		bool operator!=(const Token &other) const;
