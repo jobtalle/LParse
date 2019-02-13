@@ -62,6 +62,17 @@ bool Sentence::applicable(
 	return true;
 }
 
+bool Sentence::operator==(const Sentence &other) const {
+	if(tokens.size() != other.tokens.size())
+		return false;
+
+	for(size_t i = 0; i < tokens.size(); ++i)
+		if(tokens[i] != other.tokens[i])
+			return false;
+
+	return true;
+}
+
 std::ostream &operator<<(std::ostream &stream, const Sentence &sentence) {
 	for(auto token : sentence.getTokens())
 		stream << token;

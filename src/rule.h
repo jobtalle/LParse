@@ -13,6 +13,7 @@ namespace LParse {
 		Rule(const Sentence lhs, const Sentence rhs);
 		const Sentence &getLhs() const;
 		const Sentence &getRhs() const;
+		bool operator==(const Rule &other) const;
 
 	private:
 		Sentence lhs;

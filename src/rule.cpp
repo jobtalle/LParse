@@ -18,6 +18,10 @@ const Sentence &Rule::getRhs() const {
 	return rhs;
 }
 
+bool Rule::operator==(const Rule &other) const {
+	return lhs == other.lhs && rhs == other.rhs;
+}
+
 std::ostream &operator<<(std::ostream &stream, const Rule &rule) {
 	stream << rule.getLhs() << Rule::CONNECTIVE << rule.getRhs();
 
