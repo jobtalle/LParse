@@ -6,9 +6,18 @@
 
 using namespace LParse;
 
+Sentence::Sentence() {
+
+}
+
 Sentence::Sentence(const std::vector<Token> tokens) :
 	tokens(tokens) {
 
+}
+
+Sentence::Sentence(const std::string string) {
+	for(const char &c : string)
+		tokens.push_back(c);
 }
 
 void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {

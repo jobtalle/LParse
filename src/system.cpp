@@ -3,7 +3,7 @@
 using namespace LParse;
 
 System::System() :
-	axiom({}) {
+	axiom() {
 
 }
 
@@ -44,7 +44,7 @@ size_t System::getIterations() const {
 
 std::shared_ptr<Sentence> System::generate(std::mt19937 &randomizer) const {
 	if(!isComplete())
-		return std::shared_ptr<Sentence>(new Sentence({}));
+		return std::shared_ptr<Sentence>(new Sentence());
 
 	std::shared_ptr<Sentence> sentence(new Sentence(axiom));
 
