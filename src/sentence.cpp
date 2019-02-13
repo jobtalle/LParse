@@ -27,7 +27,7 @@ void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 		std::vector<Rule*> possibleRules;
 
 		for(auto rule = rules.begin(); rule < rules.end(); ++rule)
-			if(applicable(at, *rule))
+			if(applicable(at, tokens.end(), *rule))
 				possibleRules.push_back(const_cast<Rule*>(&*rule));
 
 		if(possibleRules.size()) {
@@ -42,6 +42,7 @@ void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 			newTokens.push_back(*at++);
 	}
 
+	tokens.clear();
 	tokens = newTokens;
 }
 
@@ -49,10 +50,13 @@ const std::vector<Token> &Sentence::getTokens() const {
 	return tokens;
 }
 
-bool Sentence::applicable(std::vector<Token>::iterator at, const Rule &rule) const {
+bool Sentence::applicable(
+	std::vector<Token>::iterator at,
+	const std::vector<Token>::iterator last,
+	const Rule &rule) const {
 	auto tokens = rule.getLhs().getTokens();
 
-	for(auto tokensAt = tokens.begin(); tokensAt < tokens.end(); ++at, ++tokensAt)
+	for(auto tokensAt = tokens.begin(); tokensAt < tokens.end() && at < last; ++at, ++tokensAt)
 		if(*tokensAt != *at)
 			return false;
 
