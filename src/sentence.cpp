@@ -73,6 +73,15 @@ bool Sentence::operator==(const Sentence &other) const {
 	return true;
 }
 
+std::string Sentence::getString() const {
+	std::string string;
+
+	for(auto token : tokens)
+		string += token.getSymbol();
+
+	return string;
+}
+
 std::ostream &operator<<(std::ostream &stream, const Sentence &sentence) {
 	for(auto token : sentence.getTokens())
 		stream << token;

@@ -17,6 +17,7 @@ namespace LParse {
 		void apply(const std::vector<Rule> &rules, std::mt19937 &randomizer);
 		const std::vector<Token> &getTokens() const;
 		bool operator==(const Sentence &other) const;
+		std::string getString() const;
 
 	private:
 		std::vector<Token> tokens;
