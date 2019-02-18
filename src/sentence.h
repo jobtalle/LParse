@@ -19,8 +19,6 @@ namespace LParse {
 		bool operator==(const Sentence &other) const;
 		std::string getString() const;
 
-		static const char TERMINATOR = '\0';
-
 	private:
 		std::vector<Token> tokens;
 
