@@ -79,7 +79,7 @@ std::string Sentence::getString() const {
 	for(auto token : tokens)
 		string += token.getSymbol();
 
-	return string;
+	return string + TERMINATOR;
 }
 
 std::ostream &operator<<(std::ostream &stream, const Sentence &sentence) {
