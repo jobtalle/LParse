@@ -55,8 +55,8 @@ bool Sentence::applicable(
 	const Rule &rule) const {
 	auto tokens = rule.getLhs().getTokens();
 
-	for(auto tokensAt = tokens.begin(); tokensAt < tokens.end() && at < last; ++at, ++tokensAt)
-		if(*tokensAt != *at)
+	for(auto tokensAt = tokens.begin(); tokensAt < tokens.end(); ++at, ++tokensAt)
+		if(at == last || *tokensAt != *at)
 			return false;
 
 	return true;
