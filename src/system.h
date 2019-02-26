@@ -12,19 +12,16 @@ namespace LParse {
 	class System final {
 	public:
 		System();
-		System(const Sentence &axiom, const std::vector<Rule> &rules, const size_t applications);
+		System(const Sentence &axiom, const std::vector<Rule> &rules);
 		void setAxiom(const Sentence &axiom);
 		void setRules(const std::vector<Rule> &rules);
-		void setIterations(const size_t applications);
 		Sentence getAxiom() const;
 		std::vector<Rule> getRules() const;
-		size_t getIterations() const;
 		bool isComplete() const;
-		std::shared_ptr<Sentence> generate(std::mt19937 &randomizer) const;
+		std::shared_ptr<Sentence> generate(const size_t iterations, std::mt19937 &randomizer) const;
 
 	private:
 		Sentence axiom;
 		std::vector<Rule> rules;
-		size_t iterations = 0;
 	};
 }
