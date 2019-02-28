@@ -1,7 +1,5 @@
 #include "token.h"
 
-#include <iostream.>
-
 using namespace LParse;
 
 Token::Token(const char symbol) :
