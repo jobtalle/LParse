@@ -17,7 +17,6 @@ namespace LParse {
 		void setRules(const std::vector<Rule> &rules);
 		Sentence getAxiom() const;
 		std::vector<Rule> getRules() const;
-		bool isComplete() const;
 		std::shared_ptr<Sentence> generate(const size_t iterations, std::mt19937 &randomizer) const;
 
 	private:

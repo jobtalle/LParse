@@ -21,10 +21,6 @@ void System::setRules(const std::vector<Rule> &rules) {
 	this->rules = rules;
 }
 
-bool System::isComplete() const {
-	return rules.size() && axiom.getTokens().size();
-}
-
 Sentence System::getAxiom() const {
 	return axiom;
 }
@@ -34,9 +30,6 @@ std::vector<Rule> System::getRules() const {
 }
 
 std::shared_ptr<Sentence> System::generate(const size_t iterations, std::mt19937 &randomizer) const {
-	if(!isComplete())
-		return std::shared_ptr<Sentence>();
-
 	std::shared_ptr<Sentence> sentence(std::make_shared<Sentence>(axiom));
 
 	for(size_t application = 0; application < iterations; ++application)
