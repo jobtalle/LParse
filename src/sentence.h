@@ -27,6 +27,6 @@ namespace LParse {
 			const std::vector<Token>::iterator last,
 			const Rule &rule) const;
 	};
-};
+}
 
 std::ostream &operator<<(std::ostream &stream, const LParse::Sentence &sentence);

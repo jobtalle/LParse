@@ -19,6 +19,6 @@ namespace LParse {
 		Sentence lhs;
 		Sentence rhs;
 	};
-};
+}
 
 std::ostream &operator<<(std::ostream &stream, const LParse::Rule &rule);

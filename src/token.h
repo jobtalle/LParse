@@ -14,6 +14,6 @@ namespace LParse {
 	private:
 		char symbol;
 	};
-};
+}
 
 std::ostream &operator<<(std::ostream &stream, const LParse::Token &token);
