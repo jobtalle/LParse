@@ -14,6 +14,7 @@ namespace LParse {
 		const Sentence &getLhs() const;
 		const Sentence &getRhs() const;
 		bool operator==(const Rule &other) const;
+		std::string getString() const;
 
 	private:
 		Sentence lhs;

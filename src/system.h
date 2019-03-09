@@ -15,8 +15,8 @@ namespace LParse {
 		System(const Sentence &axiom, const std::vector<Rule> &rules);
 		void setAxiom(const Sentence &axiom);
 		void setRules(const std::vector<Rule> &rules);
-		Sentence getAxiom() const;
-		std::vector<Rule> getRules() const;
+		const Sentence &getAxiom() const;
+		const std::vector<Rule> &getRules() const;
 		std::shared_ptr<Sentence> generate(const size_t iterations, std::mt19937 &randomizer) const;
 
 	private:

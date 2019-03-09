@@ -21,11 +21,11 @@ void System::setRules(const std::vector<Rule> &rules) {
 	this->rules = rules;
 }
 
-Sentence System::getAxiom() const {
+const Sentence &System::getAxiom() const {
 	return axiom;
 }
 
-std::vector<Rule> System::getRules() const {
+const std::vector<Rule> &System::getRules() const {
 	return rules;
 }
 

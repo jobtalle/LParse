@@ -22,6 +22,10 @@ bool Rule::operator==(const Rule &other) const {
 	return lhs == other.lhs && rhs == other.rhs;
 }
 
+std::string Rule::getString() const {
+	return lhs.getString() + Rule::CONNECTIVE + rhs.getString();
+}
+
 std::ostream &operator<<(std::ostream &stream, const Rule &rule) {
 	stream << rule.getLhs() << Rule::CONNECTIVE << rule.getRhs();
 
