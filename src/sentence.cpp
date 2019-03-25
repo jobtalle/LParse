@@ -1,14 +1,9 @@
 #include "sentence.h"
 #include "rule.h"
 
-#include <iostream>
 #include <random>
 
 using namespace LParse;
-
-Sentence::Sentence() {
-
-}
 
 Sentence::Sentence(const std::vector<Token> tokens) :
 	tokens(tokens) {
@@ -20,7 +15,7 @@ Sentence::Sentence(const std::string string) {
 		tokens.push_back(c);
 }
 
-void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
+void Sentence::apply(const std::vector<Rule> &rules, Randomizer &randomizer) {
 	std::vector<Token> newTokens;
 
 	for(auto at = tokens.begin(); at < tokens.end();) {
@@ -30,7 +25,7 @@ void Sentence::apply(const std::vector<Rule> &rules, std::mt19937 &randomizer) {
 			if(applicable(at, tokens.end(), *rule))
 				possibleRules.push_back(const_cast<Rule*>(&*rule));
 
-		if(possibleRules.size()) {
+		if(!possibleRules.empty()) {
 			auto rule = possibleRules[std::uniform_int_distribution<int>(0, possibleRules.size() - 1)(randomizer)];
 			auto result = rule->getRhs().getTokens();
 

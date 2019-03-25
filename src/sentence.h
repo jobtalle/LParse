@@ -1,6 +1,7 @@
 #pragma once
 
 #include "token.h"
+#include "randomizer.h"
 
 #include <vector>
 #include <ostream>
@@ -11,10 +12,10 @@ namespace LParse {
 	class Rule;
 	class Sentence final {
 	public:
-		Sentence();
+		Sentence() = default;
 		Sentence(const std::vector<Token> tokens);
 		Sentence(const std::string string);
-		void apply(const std::vector<Rule> &rules, std::mt19937 &randomizer);
+		void apply(const std::vector<Rule> &rules, Randomizer &randomizer);
 		const std::vector<Token> &getTokens() const;
 		bool operator==(const Sentence &other) const;
 		std::string getString() const;
