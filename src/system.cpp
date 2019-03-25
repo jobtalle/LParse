@@ -1,15 +1,11 @@
 #include "system.h"
+#include <utility>
 
 using namespace LParse;
 
-System::System() :
-	axiom() {
-
-}
-
-System::System(const Sentence &axiom, const std::vector<Rule> &rules) :
-	axiom(axiom),
-	rules(rules) {
+System::System(Sentence axiom, std::vector<Rule> rules) :
+	axiom(std::move(axiom)),
+	rules(std::move(rules)) {
 
 }
 
@@ -29,7 +25,7 @@ const std::vector<Rule> &System::getRules() const {
 	return rules;
 }
 
-std::shared_ptr<Sentence> System::generate(const size_t iterations, std::mt19937 &randomizer) const {
+std::shared_ptr<Sentence> System::generate(const size_t iterations, Randomizer &randomizer) const {
 	std::shared_ptr<Sentence> sentence(std::make_shared<Sentence>(axiom));
 
 	for(size_t application = 0; application < iterations; ++application)

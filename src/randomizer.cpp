@@ -18,6 +18,10 @@ int Randomizer::makeInt(const int min, const int max) {
 	return std::uniform_int_distribution<int>(min, max)(randomizer);
 }
 
+float Randomizer::makeFloat(const float min, const float max) {
+	return std::uniform_real_distribution<float>(min, max)(randomizer);
+}
+
 Randomizer Randomizer::makeRandomizer() {
 	std::array<int, std::mt19937::state_size> seeds{};
 	std::generate_n(seeds.data(), seeds.size(), std::ref(randomizer));
