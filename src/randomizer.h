@@ -2,14 +2,17 @@
 
 #include <random>
 #include <memory>
+#include <string>
 
 namespace LParse {
 	class Randomizer final {
 	public:
 		Randomizer();
+		Randomizer(const std::string &state);
 		Randomizer makeRandomizer();
-		int makeInt(const int min, const int max);
-		float makeFloat(const float min, const float max);
+		int makeInt(int min, int max);
+		float makeFloat(float min, float max);
+		std::string toString() const;
 
 	private:
 		std::mt19937 randomizer;

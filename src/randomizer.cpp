@@ -1,12 +1,19 @@
 #include "randomizer.h"
 
 #include <array>
+#include <sstream>
 
 using namespace LParse;
 
 Randomizer::Randomizer() :
 	randomizer(*makeRandomSeedSeq()) {
 	
+}
+
+Randomizer::Randomizer(const std::string& state) {
+	std::istringstream stream(state);
+
+	stream >> randomizer;
 }
 
 Randomizer::Randomizer(std::seed_seq& seedSeq) :
@@ -20,6 +27,14 @@ int Randomizer::makeInt(const int min, const int max) {
 
 float Randomizer::makeFloat(const float min, const float max) {
 	return std::uniform_real_distribution<float>(min, max)(randomizer);
+}
+
+std::string Randomizer::toString() const {
+	std::stringstream state;
+
+	state << randomizer;
+
+	return state.str();
 }
 
 Randomizer Randomizer::makeRandomizer() {
