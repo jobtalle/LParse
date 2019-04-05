@@ -13,8 +13,8 @@ namespace LParse {
 	class Sentence final {
 	public:
 		Sentence() = default;
-		Sentence(const std::vector<Token> tokens);
-		Sentence(const std::string string);
+		Sentence(std::vector<Token> tokens);
+		Sentence(std::string string);
 		void apply(const std::vector<Rule> &rules, Randomizer &randomizer);
 		const std::vector<Token> &getTokens() const;
 		bool operator==(const Sentence &other) const;
@@ -25,7 +25,7 @@ namespace LParse {
 
 		bool applicable(
 			std::vector<Token>::iterator at,
-			const std::vector<Token>::iterator last,
+			const std::vector<Token>::const_iterator &last,
 			const Rule &rule) const;
 	};
 }

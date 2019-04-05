@@ -46,7 +46,7 @@ const std::vector<Token> &Sentence::getTokens() const {
 
 bool Sentence::applicable(
 	std::vector<Token>::iterator at,
-	const std::vector<Token>::iterator last,
+	const std::vector<Token>::const_iterator &last,
 	const Rule &rule) const {
 	auto tokens = rule.getLhs().getTokens();
 
