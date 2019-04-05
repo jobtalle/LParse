@@ -11,7 +11,7 @@ namespace LParse {
 		Randomizer(const std::string &state);
 		Randomizer makeRandomizer();
 		int makeInt(int min, int max);
-		float makeFloat(float min, float max);
+		float makeFloat(float min = 0, float max = 1);
 		std::string toString() const;
 
 	private:
