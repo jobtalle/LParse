@@ -2,17 +2,24 @@
 #include "rule.h"
 
 #include <random>
+#include <utility>
 
 using namespace LParse;
 
-Sentence::Sentence(const std::vector<Token> tokens) :
-	tokens(tokens) {
+Sentence::Sentence(const Token token) :
+	tokens({ token }) {
+
+}
+
+
+Sentence::Sentence(std::vector<Token> tokens) :
+	tokens(std::move(tokens)) {
 
 }
 
 Sentence::Sentence(const std::string string) {
 	for(const char &c : string)
-		tokens.push_back(c);
+		tokens.emplace_back(c);
 }
 
 void Sentence::apply(const std::vector<Rule> &rules, Randomizer &randomizer) {

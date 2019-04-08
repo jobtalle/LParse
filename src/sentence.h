@@ -13,6 +13,7 @@ namespace LParse {
 	class Sentence final {
 	public:
 		Sentence() = default;
+		Sentence(Token token);
 		Sentence(std::vector<Token> tokens);
 		Sentence(std::string string);
 		void apply(const std::vector<Rule> &rules, Randomizer &randomizer);
