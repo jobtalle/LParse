@@ -6,7 +6,6 @@
 
 #include <vector>
 #include <memory>
-#include <ostream>
 
 namespace LParse {
 	class System final {
@@ -18,10 +17,14 @@ namespace LParse {
 		void setRules(const std::vector<Rule> &rules);
 		const Sentence &getAxiom() const;
 		const std::vector<Rule> &getRules() const;
-		std::shared_ptr<Sentence> generate(const size_t iterations, Randomizer &randomizer) const;
+		std::shared_ptr<Sentence> generate(size_t iterations, Randomizer &randomizer) const;
+		std::vector<Token> getGeneratedTokens() const;
 
 	private:
 		Sentence axiom;
 		std::vector<Rule> rules;
+		static const char branchTokens[];
+
+		void getGeneratedTokens(std::vector<Token> &tokens, const Sentence &sentence) const;
 	};
 }
