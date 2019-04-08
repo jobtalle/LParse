@@ -25,6 +25,8 @@ namespace LParse {
 		std::vector<Rule> rules;
 		static const char branchTokens[];
 
-		void getGeneratedTokens(std::vector<Token> &tokens, const Sentence &sentence) const;
+		void getGeneratedTokens(
+			std::vector<Token> &tokens,
+			const Sentence &sentence) const;
 	};
 }

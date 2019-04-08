@@ -60,6 +60,6 @@ void System::getGeneratedTokens(std::vector<Token>& tokens, const Sentence& sent
 		if(std::find(
 			std::begin(branchTokens),
 			std::end(branchTokens),
-			token.getSymbol()) != std::end(branchTokens))
+			token.getSymbol()) == std::end(branchTokens))
 			tokens.emplace_back(token.getSymbol());
 }
