@@ -2,6 +2,7 @@
 
 #include <array>
 #include <sstream>
+#include <algorithm>
 
 using namespace LParse;
 
@@ -27,6 +28,10 @@ int Randomizer::makeInt(const int min, const int max) {
 
 float Randomizer::makeFloat(const float min, const float max) {
 	return std::uniform_real_distribution<float>(min, max)(randomizer);
+}
+
+std::mt19937 &Randomizer::getRandomizer() {
+	return randomizer;
 }
 
 std::string Randomizer::toString() const {

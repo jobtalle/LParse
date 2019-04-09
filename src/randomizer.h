@@ -3,6 +3,7 @@
 #include <random>
 #include <memory>
 #include <string>
+#include <vector>
 
 namespace LParse {
 	class Randomizer final {
@@ -12,6 +13,7 @@ namespace LParse {
 		Randomizer makeRandomizer();
 		int makeInt(int min, int max);
 		float makeFloat(float min = 0, float max = 1);
+		std::mt19937 &getRandomizer();
 		std::string toString() const;
 
 	private:
