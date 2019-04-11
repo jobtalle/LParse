@@ -33,10 +33,10 @@ const std::vector<Rule> &System::getRules() const {
 	return rules;
 }
 
-std::shared_ptr<Sentence> System::generate(const size_t iterations, Randomizer &randomizer) const {
+std::shared_ptr<Sentence> System::generate(const GrowthProfile &growthProfile, Randomizer &randomizer) const {
 	std::shared_ptr<Sentence> sentence(std::make_shared<Sentence>(axiom));
 
-	for(size_t application = 0; application < iterations; ++application)
+	for(size_t application = 0; application < growthProfile.getIterations(); ++application)
 		sentence->apply(rules, randomizer);
 
 	return sentence;

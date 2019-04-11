@@ -3,6 +3,7 @@
 #include "rule.h"
 #include "sentence.h"
 #include "randomizer.h"
+#include "growthProfile.h"
 
 #include <vector>
 #include <memory>
@@ -17,7 +18,9 @@ namespace LParse {
 		void setRules(const std::vector<Rule> &rules);
 		const Sentence &getAxiom() const;
 		const std::vector<Rule> &getRules() const;
-		std::shared_ptr<Sentence> generate(size_t iterations, Randomizer &randomizer) const;
+		std::shared_ptr<Sentence> generate(
+			const GrowthProfile &growthProfile,
+			Randomizer &randomizer) const;
 		std::vector<Token> getGeneratedTokens() const;
 
 	private:

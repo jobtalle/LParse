@@ -24,10 +24,7 @@ namespace LParse {
 	private:
 		std::vector<Token> tokens;
 
-		bool applicable(
-			std::vector<Token>::iterator at,
-			const std::vector<Token>::const_iterator &last,
-			const Rule &rule) const;
+		bool applicable(std::vector<Token>::iterator at, const Rule &rule) const;
 	};
 }
 
