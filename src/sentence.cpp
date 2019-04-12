@@ -21,7 +21,7 @@ Sentence::Sentence(const std::string string) {
 		tokens.emplace_back(c);
 }
 
-void Sentence::apply(const std::vector<Rule> &rules, Randomizer &randomizer) {
+void Sentence::apply(const std::vector<Rule> &rules, Randomizer &randomizer, const size_t limit) {
 	std::vector<Token> newTokens;
 
 	for(auto at = tokens.begin(); at < tokens.end();) {
@@ -41,6 +41,9 @@ void Sentence::apply(const std::vector<Rule> &rules, Randomizer &randomizer) {
 		}
 		else
 			newTokens.push_back(*at++);
+
+		if(newTokens.size() > limit)
+			break;
 	}
 
 	tokens = newTokens;
