@@ -18,7 +18,7 @@ namespace LParse {
 		Sentence(Token token);
 		Sentence(std::vector<Token> tokens);
 		Sentence(std::string string);
-		void apply(const std::vector<Rule> &rules, Randomizer &randomizer, size_t limit = std::numeric_limits<size_t>::max());
+		bool apply(const std::vector<Rule> &rules, Randomizer &randomizer, size_t limit = std::numeric_limits<size_t>::max());
 		const std::vector<Token> &getTokens() const;
 		bool operator==(const Sentence &other) const;
 		std::string getString() const;

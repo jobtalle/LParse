@@ -35,19 +35,16 @@ const std::vector<Rule> &System::getRules() const {
 
 std::shared_ptr<Sentence> System::generate(const GrowthProfile &growthProfile, Randomizer &randomizer) const {
 	auto limit = growthProfile.getGrowth(0);
+	auto sentence(std::make_shared<Sentence>(axiom));
 
 	if(axiom.getTokens().size() > limit)
-		return nullptr;
-	
-	auto sentence(std::make_shared<Sentence>(axiom));
+		return sentence;
 
 	for(size_t application = 0; application < growthProfile.getIterations();) {
 		limit += growthProfile.getGrowth(++application);
 
-		sentence->apply(rules, randomizer, limit);
-
-		if(sentence->getTokens().size() > limit)
-			return nullptr;
+		if(!sentence->apply(rules, randomizer, limit))
+			return std::make_shared<Sentence>(axiom);
 	}
 
 	return sentence;
