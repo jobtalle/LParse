@@ -14,5 +14,7 @@ namespace LParse {
 		static const char PITCH_DECREMENT = '-';
 		static const char ROLL_INCREMENT = '/';
 		static const char ROLL_DECREMENT = '\\';
+		static const char YAW_INCREMENT = '^';
+		static const char YAW_DECREMENT = '_';
 	}
 }
