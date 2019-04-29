@@ -38,7 +38,7 @@ std::shared_ptr<Sentence> System::generate(const GrowthProfile &growthProfile, R
 
 	for(size_t application = 0; application < growthProfile.getIterations();)
 		if(!sentence->apply(rules, randomizer, growthProfile.getGrowth(application++)))
-			return std::make_shared<Sentence>();
+			break;
 
 	return sentence;
 }
