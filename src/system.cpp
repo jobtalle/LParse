@@ -6,7 +6,7 @@
 using namespace LParse;
 
 const char System::branchTokens[] = {
-	Legend::LEAF,
+	Legend::LEAF_OPEN,
 	Legend::BRANCH_OPEN,
 	Legend::BRANCH_CLOSE
 };
