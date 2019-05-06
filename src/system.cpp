@@ -34,9 +34,10 @@ const std::vector<Rule> &System::getRules() const {
 }
 
 std::shared_ptr<Sentence> System::generate(const GrowthProfile &growthProfile, Randomizer &randomizer) const {
+	const auto iterations = randomizer.makeInt(1, growthProfile.getIterations());
 	auto sentence(std::make_shared<Sentence>(axiom));
 
-	for(size_t application = 0; application < growthProfile.getIterations();)
+	for(size_t application = 0; application < iterations;)
 		if(!sentence->apply(rules, randomizer, growthProfile.getGrowth(application++)))
 			break;
 
